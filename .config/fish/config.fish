@@ -27,10 +27,7 @@ end
 if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end
-set -U PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 if command -v pyenv 1>/dev/null 2>&1
     pyenv init - | source
 end
-
-set -U TMUX_YANK_PATH $HOME/.tmux-yank

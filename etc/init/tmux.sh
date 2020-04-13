@@ -14,3 +14,8 @@ cd $TMUX_PATH
 make
 sudo make install
 tmux -V
+
+if [ -z "$(type wind32yank.exe > /dev/null 2>&1)" ]; then
+    curl -LO https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
+    unzip -d $(wslpath -u "$USERPROFILE")/$WINDOWS_PATH_DIR win32yank-x64.zip
+fi
