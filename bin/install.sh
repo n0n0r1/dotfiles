@@ -67,7 +67,7 @@ initialize() {
         exec_cmd $f
     else
         exec_cmd $DOTFILES_PATH/etc/init/base.sh
-        for f in $DOTFILES_PATH/etc/init/*.sh
+        for f in $(find $DOTFILES_PATH/etc/init -regex ".*/[a-zA-Z0-9_]+\.sh")
         do
             [ "$(basename $f)" == "base.sh" ] && continue
 

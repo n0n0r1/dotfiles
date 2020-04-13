@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 eval "TMUX_YANK_PATH=$TMUX_YANK_PATH"
 
 # dependencies
