@@ -24,6 +24,10 @@ function attach_tmux_session_if_needed
     end
 end
 
+function fssh -d "Fuzzy-find ssh host via ag and ssh into it"
+    grep --ignore-case '^host [^*]' ~/.ssh/config | cut -d ' ' -f 2 | fzf | read -l result; and ssh "$result"
+end
+
 if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end

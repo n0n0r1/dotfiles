@@ -94,6 +94,9 @@ deploy() {
     header "Start deploying dotfiles ..."
     for f in $(dotfiles)
     do
+        if [ ! -d $(dirname "$HOME/$f") ]; then
+            mkdir -p $(dirname "$HOME/$f")
+        fi
         symlink_cmd "$DOTFILES_PATH/$f" "$HOME/$f"
     done
 }
