@@ -5,13 +5,13 @@ set VSCODE_PATH=%HOMEPATH%\AppData\Roaming\Code\User
 FOR /D %%a IN (%HOMEPATH%\AppData\Local\Packages\Microsoft.WindowsTerminal_*) DO set WINDOWS_TERNAL_PATH=%%a\LocalState
 
 rem Windows Terminal profiles.json
-if exist %DOTFILES_PATH%\WindowsTerminal\profiles.json.%COMPUTERNAME% (
+if exist %DOTFILES_PATH%\WindowsTerminal\profiles.%COMPUTERNAME%.json (
     del %WINDOWS_TERNAL_PATH%\profiles.json
-    mklink %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.json.%COMPUTERNAME%
+    mklink %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.%COMPUTERNAME%.json
 ) else (
-    copy %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.json.%COMPUTERNAME%
+    copy %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.%COMPUTERNAME%.json
     del %WINDOWS_TERNAL_PATH%\profiles.json
-    mklink %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.json.%COMPUTERNAME%
+    mklink %WINDOWS_TERNAL_PATH%\profiles.json %DOTFILES_PATH%\WindowsTerminal\profiles.%COMPUTERNAME%.json
 )
 
 rem VSCode

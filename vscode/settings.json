@@ -85,7 +85,7 @@
     "vim.useSystemClipboard": true, // vimとシステムのクリップボードを共有
     "vim.hlsearch": true,
     "vim.easymotion": true,
-    "vim.easymotionKeys": "asdfghjkl",
+    "vim.easymotionKeys": "sdfjkl",
     "vim.easymotionMarkerBackgroundColor": "#ffffffff",
     "vim.easymotionMarkerWidthPerChar": 11,
     "vim.easymotionMarkerForegroundColorOneChar": "#000000",
@@ -101,9 +101,9 @@
         "<C-l>": false,
         "<C-f>": false,
         "<C-b>": false,
-        // "<C-a>": false,
+        "<C-a>": true,
         "<C-o>": false,
-        "<C-y>": false
+        "<C-y>": true
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         // カーソル移動
@@ -111,11 +111,14 @@
         { "before": ["g", "k"], "after": ["k"] },
         { "before": ["j"], "after": ["g", "j"] },
         { "before": ["g", "j"], "after": ["j"] },
-        { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
+        { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
         { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
 
+        // 貼り付け
+        // { "before": ["p"], "after": ["p", "`", "]", "h"] },
+
         // ヤンク上書きなし削除
-        { "before": ["x"], "after": ["\"", "0", "x"] },
+        // { "before": ["x"], "after": ["\"", "0", "x"] },
         { "before": ["s"], "after": ["\"", "0", "s"] },
 
         // CamelCaseMotion
@@ -138,41 +141,34 @@
         // ウィンドウ操作
         { "before": ["<C-w>", "-"], "commands": [":split"] },
         { "before": ["<C-w>", "\\"], "commands": [":vsplit"] },
-
-        // ウィンドウ移動
-        // { "before": ["<Leader>", "h"], "after": ["<C-w>", "h"] },
-        // { "before": ["<Leader>", "j"], "after": ["<C-w>", "j"] },
-        // { "before": ["<Leader>", "k"], "after": ["<C-w>", "k"] },
-        // { "before": ["<Leader>", "l"], "after": ["<C-w>", "l"] },
+        { "before": ["<C-w>", ","], "commands": ["workbench.action.decreaseViewSize"] },
+        { "before": ["<C-w>", "."], "commands": ["workbench.action.increaseViewSize"] },
+        { "before": ["<C-w>", "H"], "commands": ["workbench.action.moveEditorToLeftGroup"] },
+        { "before": ["<C-w>", "L"], "commands": ["workbench.action.moveEditorToRightGroup"] },
+        { "before": ["<C-w>", "J"], "commands": ["workbench.action.moveEditorToBelowGroup"] },
+        { "before": ["<C-w>", "K"], "commands": ["workbench.action.moveEditorToAboveGroup"] },
 
         // ファイルアクセス
+        { "before": ["<Leader>", "e"], "commands": [":e"] },
         { "before": ["<Leader>", "w"], "commands": [":w"] },
-        { "before": ["<Leader>", "q"], "commands": [":q!"] },
-        // { "before": ["<Leader>", "o"], "commands": ["workbench.action.files.openFile"]},
-        // { "before": ["<Leader>", "O"], "commands": ["workbench.action.files.openFolder"]},
-        { "before": ["<Leader>", "n"], "commands": ["workbench.action.files.newUntitledFile"]},
-        { "before": ["<Leader>", "c"], "commands": ["workbench.action.editor.changeLanguageMode"]},
+        { "before": ["<Leader>", "q"], "commands": [":q"] },
+        { "before": ["<Leader>", "c"], "commands": ["workbench.action.files.newUntitledFile"]},
+        { "before": ["<Leader>", "t"], "commands": ["workbench.action.editor.changeLanguageMode"]},
         { "before": ["<Leader>", "f"], "commands": ["workbench.action.quickOpen"]},
         { "before": ["<Leader>", "r"], "commands": ["workbench.action.openRecent"]},
+
+        // 検索
+        { "before": ["<Leader>", "/"], "after": ["<Leader>", "<Leader>", "/"]},
 
         // システム側のundo/redoを利用する
         { "before": ["u"], "commands": ["undo"] },
         { "before": ["<C-r>"], "commands": ["redo"] },
 
         // 便利系
-        { "before": ["+"], "after": ["<C-a>"] },
+        { "before": ["="], "after": ["<C-a>"] },
         { "before": ["-"], "after": ["<C-x>"] },
         { "before": [">"], "commands": ["editor.action.indentLines"] },
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
-
-        // コード実行
-        // { "before": ["<Leader>", "r"], "commands": ["code-runner.run"] },
-
-        // インポート整理
-        // {
-        //     "before": ["<Leader>", "i"],
-        //     "commands": ["editor.action.organizeImports"]
-        // },
     ],
     "vim.normalModeKeyBindings": [
     ],
@@ -189,9 +185,6 @@
         // 便利系
         { "before": [">"], "commands": ["editor.action.indentLines"] },
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
-
-        // コード実行
-        // { "before": ["<Leader>", "r"], "commands": ["code-runner.run"] },
 
         // CamelCaseMotion
         { "before": ["w"], "after": ["<Leader>", "w"] },
@@ -261,9 +254,13 @@
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "git.autofetch": true,
     "editor.detectIndentation": false,
     "markdown.extension.list.indentationSize": "inherit",
     "editor.renderControlCharacters": true,
     "workbench.editor.closeEmptyGroups": true,
+    "terminal.integrated.allowChords": false,
 }
