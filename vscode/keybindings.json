@@ -258,6 +258,11 @@
         "when": "!editorFocus && !inputFocus"
     },
     {
+        "key": "space c",
+        "command": "workbench.action.files.newUntitledFile",
+        "when": "activeEditorGroupEmpty"
+    },
+    {
         "key": "ctrl+a",
         "command": "editor.action.replaceAll",
         "when": "editorFocus && replaceInputFocussed"
@@ -410,7 +415,7 @@
     {
         "key": "ctrl+t",
         "command": "workbench.action.terminal.toggleTerminal",
-        "when": "editorFocus && vim.mode != 'Insert' || terminalFocus || inSettingsSearch || inKeybindings || inSettingsEditor"
+        "when": "activeEditorGroupEmpty || editorFocus && vim.mode != 'Insert' || terminalFocus || inSettingsSearch || inKeybindings || inSettingsEditor"
     },
     {
         "key": "ctrl+w",
