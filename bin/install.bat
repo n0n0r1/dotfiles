@@ -1,8 +1,8 @@
 @echo off
 
 set DOTFILES_PATH=%~dp0\..\
-set VSCODE_PATH=%HOMEPATH%\AppData\Roaming\Code\User
-FOR /D %%a IN (%HOMEPATH%\AppData\Local\Packages\Microsoft.WindowsTerminal_*) DO set WINDOWS_TERNAL_PATH=%%a\LocalState
+set VSCODE_PATH=%USERPROFILE%\AppData\Roaming\Code\User
+FOR /D %%a IN (%USERPROFILE%\AppData\Local\Packages\Microsoft.WindowsTerminal_*) DO set WINDOWS_TERNAL_PATH=%%a\LocalState
 
 rem Windows Terminal profiles.json
 if exist %DOTFILES_PATH%\WindowsTerminal\profiles.%COMPUTERNAME%.json (

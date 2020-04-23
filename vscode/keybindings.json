@@ -473,7 +473,7 @@
         "when": "inKeybindings"
     },
     {
-        "key": "alt+c",
+        "key": "alt+d",
         "command": "targetsContainers.focus"
     },
     {
