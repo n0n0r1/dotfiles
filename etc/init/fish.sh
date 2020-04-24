@@ -3,7 +3,7 @@
 eval "FISHER_PATH=$FISHER_PATH"
 
 # fishのインストール
-if [ "`type fish`" = "" ]; then
+if [ -z "$(command -v fish)" ]; then
     sudo apt-add-repository -y ppa:fish-shell/release-3
     sudo apt-get update -y
     sudo apt-get install -y fish

@@ -150,12 +150,12 @@
     {
         "key": "enter",
         "command": "closeFindWidget",
-        "when": "editorFocus && findWidgetVisible && !findInputFocussed && !replaceInputFocussed"
+        "when": "editorFocus && findWidgetVisible && !findInputFocussed && !replaceInputFocussed && !terminalFocus"
     },
     {
         "key": "enter",
         "command": "workbench.action.terminal.hideFindWidget",
-        "when": "terminalFindWidgetFocused || terminalFindWidgetVisible && terminalFocus"
+        "when": "terminalFindWidgetFocused"
     },
     {
         "key": "enter",
@@ -171,7 +171,7 @@
         "key": "enter",
         "command": "settings.action.focusSettingsFromSearch",
         "when": "inSettingsSearch && !suggestWidgetVisible"
-    }
+    },
     {
         "key": "enter",
         "command": "editor.action.insertLineAfter",
@@ -185,7 +185,7 @@
     {
         "key": ";",
         "command": "workbench.action.showCommands",
-        "when": "!inQuickOpen && vim.mode != 'Insert' && !inSettingsSearch && !inKeybindingsSearch"
+        "when": "!inQuickOpen && vim.mode != 'Insert' && !inSettingsSearch && !inKeybindingsSearch && !terminalFocus"
     },
     {
         "key": ";",
@@ -193,7 +193,7 @@
         "when": "inQuickOpen"
     },
     {
-        "key": "shift+a",
+        "key": "ctrl+a",
         "command": "editor.action.replaceAll",
         "when": "findWidgetVisible && editorFocus && vim.mode == 'Normal' && !findInputFocussed && !replaceInputFocussed"
     },
@@ -208,9 +208,19 @@
         "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
     },
     {
+        "key": "f",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
         "key": "n",
         "command": "editor.action.nextMatchFindAction",
         "when": "findWidgetVisible && editorFocus && vim.mode == 'Normal' && !findInputFocussed && !replaceInputFocussed"
+    },
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
         "key": "shift+n",
@@ -240,7 +250,7 @@
     {
         "key": "e",
         "command": "toggleexcludedfiles.toggle",
-        "when": "filesExplorerFocus"
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
         "key": "r",
@@ -255,12 +265,12 @@
     {
         "key": "space q",
         "command": "workbench.action.closeActiveEditor",
-        "when": "!editorFocus && !inputFocus"
+        "when": "!editorFocus && !inputFocus && !terminalFocus"
     },
     {
         "key": "space c",
         "command": "workbench.action.files.newUntitledFile",
-        "when": "activeEditorGroupEmpty"
+        "when": "activeEditorGroupEmpty && !terminalFocus"
     },
     {
         "key": "ctrl+a",
@@ -275,7 +285,7 @@
     {
         "key": "ctrl+c",
         "command": "workbench.action.terminal.toggleFindCaseSensitive",
-        "when": "terminalFindWidgetFocused || terminalFocus"
+        "when": "terminalFindWidgetFocused"
     },
     {
         "key": "ctrl+c",
@@ -405,7 +415,7 @@
     {
         "key": "ctrl+r",
         "command": "workbench.action.terminal.toggleFindRegex",
-        "when": "terminalFindWidgetFocused || terminalFocus"
+        "when": "terminalFindWidgetFocused"
     },
     {
         "key": "ctrl+r",
@@ -425,7 +435,7 @@
     {
         "key": "ctrl+w",
         "command": "workbench.action.terminal.toggleFindWholeWord",
-        "when": "terminalFindWidgetFocused || terminalFocus"
+        "when": "terminalFindWidgetFocused"
     },
     {
         "key": "ctrl+w",
@@ -448,7 +458,7 @@
         "when": "inSettingsSearch || inKeybindings || inSettingsEditor"
     },
     {
-        "key": "ctrl+oem_1",
+        "key": "ctrl+%USERPROFILE%",
         "command": "extension.vim_escape",
         "when": "editorTextFocus && vim.active && !inDebugRepl"
     },

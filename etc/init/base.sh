@@ -2,10 +2,10 @@
 
 eval "FZF_PATH=$FZF_PATH"
 
-sudo apt install -y git
+sudo apt-get install -y git unzip connect-proxy
 
 # fzfのインストール
-if [ ! -d "$FZF_PATH" ]; then
+if [ -z "$(command -v fzf)" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_PATH
     $FZF_PATH/install
 fi

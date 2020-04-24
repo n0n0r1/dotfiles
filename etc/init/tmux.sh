@@ -3,7 +3,7 @@
 eval "TMUX_PATH=$TMUX_PATH"
 
 # dependencies
-sudo apt install -y git automake bison build-essential pkg-config libevent-dev libncurses5-dev
+sudo apt-get install -y git automake bison build-essential pkg-config libevent-dev libncurses5-dev
 
 trap rm -rf $TMUX_PATH EXIT
 git clone https://github.com/tmux/tmux $TMUX_PATH

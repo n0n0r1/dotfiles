@@ -150,6 +150,7 @@
 
         // ファイルアクセス
         { "before": ["<Leader>", "e"], "commands": [":e"] },
+        { "before": ["<Leader>", "E"], "commands": ["workbench.action.files.openFolder"] },
         { "before": ["<Leader>", "w"], "commands": [":w"] },
         { "before": ["<Leader>", "q"], "commands": [":q"] },
         { "before": ["<Leader>", "c"], "commands": ["workbench.action.files.newUntitledFile"]},
@@ -178,9 +179,6 @@
         { "before": ["F"], "after": ["<Leader>", "<Leader>", "F"] },
         { "before": ["<C-j>"], "after": ["<Leader>", "<Leader>", "j"] },
         { "before": ["<C-k>"], "after": ["<Leader>", "<Leader>", "k"] },
-
-        // ヤンク上書きなしペースト
-        { "before": ["p"], "after": ["\"", "0", "p"] },
 
         // 便利系
         { "before": [">"], "commands": ["editor.action.indentLines"] },

@@ -1,9 +1,11 @@
 #!/bin/bash
 
-sudo apt install neovim
+if [ -z "$(command -v nvim)" ]; then
+    sudo apt install -y neovim
+fi
 
-if [ -z "$(type python > /dev/null 2>&1)" ]; then
-    sudo apt install python-neovim
+if [ ! -z "$(command -v python)" ]; then
+    sudo apt install -y python-neovim
 else
     echo "please install python"
 fi
