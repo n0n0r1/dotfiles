@@ -36,7 +36,7 @@ error_message() {
 }
 
 dotfiles() {
-    find $DOTFILES_PATH -name ".*" | xargs -I {} find {} -type f | sed -e "s|$DOTFILES_PATH/||g" | grep -v "^\(\.gitignore\|\.git\|.DS_Store\|.env\)"
+    find $DOTFILES_PATH -name ".*" | xargs -I {} find {} -type f | sed -e "s|$DOTFILES_PATH/||g" | grep -v "^\(\.gitignore\|\.git\|.DS_Store\|.env\|.history\)"
 }
 
 exec_cmd() {

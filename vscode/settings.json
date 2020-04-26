@@ -135,12 +135,13 @@
         // 検索
         { "before": ["*"], "after": ["*", "z", "z"] },
         { "before": ["#"], "after": ["#", "z", "z"] },
-        { "before": ["n"], "after": ["n", "z", "z"] },
-        { "before": ["N"], "after": ["N", "z", "z"] },
+        { "before": ["n"], "commands": ["editor.action.nextMatchFindAction"] },
+        { "before": ["N"], "commands": ["editor.action.previousMatchFindAction"] },
 
         // ウィンドウ操作
         { "before": ["<C-w>", "-"], "commands": [":split"] },
         { "before": ["<C-w>", "\\"], "commands": [":vsplit"] },
+        { "before": ["<C-w>", "="], "commands": ["workbench.action.evenEditorWidths"] },
         { "before": ["<C-w>", ","], "commands": ["workbench.action.decreaseViewSize"] },
         { "before": ["<C-w>", "."], "commands": ["workbench.action.increaseViewSize"] },
         { "before": ["<C-w>", "H"], "commands": ["workbench.action.moveEditorToLeftGroup"] },
@@ -149,27 +150,28 @@
         { "before": ["<C-w>", "K"], "commands": ["workbench.action.moveEditorToAboveGroup"] },
 
         // ファイルアクセス
-        { "before": ["<Leader>", "e"], "commands": [":e"] },
+        { "before": ["<Leader>", "e"], "commands": ["workbench.action.files.openFile"] },
         { "before": ["<Leader>", "E"], "commands": ["workbench.action.files.openFolder"] },
         { "before": ["<Leader>", "w"], "commands": [":w"] },
-        { "before": ["<Leader>", "q"], "commands": [":q"] },
+        { "before": ["<Leader>", "q"], "commands": [":q!"] },
         { "before": ["<Leader>", "c"], "commands": ["workbench.action.files.newUntitledFile"]},
         { "before": ["<Leader>", "t"], "commands": ["workbench.action.editor.changeLanguageMode"]},
         { "before": ["<Leader>", "f"], "commands": ["workbench.action.quickOpen"]},
         { "before": ["<Leader>", "r"], "commands": ["workbench.action.openRecent"]},
 
-        // 検索
-        { "before": ["<Leader>", "/"], "after": ["<Leader>", "<Leader>", "/"]},
-
         // システム側のundo/redoを利用する
         { "before": ["u"], "commands": ["undo"] },
         { "before": ["<C-r>"], "commands": ["redo"] },
 
-        // 便利系
-        { "before": ["="], "after": ["<C-a>"] },
-        { "before": ["-"], "after": ["<C-x>"] },
+        // インデント
         { "before": [">"], "commands": ["editor.action.indentLines"] },
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+ 
+        // ドキュメント整形
+        { "before": ["<Leader>", "="], "commands": ["editor.action.formatDocument"]},
+ 
+        // Git
+        { "before": ["g", "s"], "commands": [""]},
     ],
     "vim.normalModeKeyBindings": [
     ],
@@ -180,7 +182,13 @@
         { "before": ["<C-j>"], "after": ["<Leader>", "<Leader>", "j"] },
         { "before": ["<C-k>"], "after": ["<Leader>", "<Leader>", "k"] },
 
-        // 便利系
+        // 検索
+        { "before": ["*"], "after": ["*", "z", "z"] },
+        { "before": ["#"], "after": ["#", "z", "z"] },
+        { "before": ["n"], "commands": ["editor.action.nextMatchFindAction"] },
+        { "before": ["N"], "commands": ["editor.action.previousMatchFindAction"] },
+
+        // インデント
         { "before": [">"], "commands": ["editor.action.indentLines"] },
         { "before": ["<"], "commands": ["editor.action.outdentLines"] },
 
@@ -210,7 +218,6 @@
         "MD032": false
     },
     "[markdown]": {
-        "tabWidth": 4,
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "markdown-preview-enhanced.mermaidTheme": "dark",
@@ -249,16 +256,11 @@
         "**/bower_components": true,
         "**/.history": true
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
     "git.autofetch": true,
     "editor.detectIndentation": false,
     "markdown.extension.list.indentationSize": "inherit",
     "editor.renderControlCharacters": true,
     "workbench.editor.closeEmptyGroups": true,
     "terminal.integrated.allowChords": false,
+    "scm.alwaysShowActions": true,
 }
