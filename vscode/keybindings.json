@@ -384,10 +384,6 @@
         "when": "editorFocus && findInputFocussed || editorFocus && replaceInputFocussed"
     },
     {
-        "key": "ctrl+m",
-        "command": "workbench.actions.view.problems"
-    },
-    {
         "key": "ctrl+n",
         "command": "editor.action.nextMatchFindAction",
         "when": "editorFocus && findInputFocussed"
@@ -518,6 +514,16 @@
         "when": "focusedView == 'workbench.panel.markers.view'"
     },
     {
+        "key": "alt+d",
+        "command": "workbench.debug.action.focusRepl",
+        "when": "!panelFocus || activePanel != 'workbench.panel.repl'"
+    },
+    {
+        "key": "alt+d",
+        "command": "workbench.action.closePanel",
+        "when": "panelFocus && activePanel == 'workbench.panel.repl'"
+    },
+    {
         "key": "alt+e",
         "command": "workbench.view.explorer",
         "when": "!sideBarFocus"
@@ -578,6 +584,16 @@
         "when": "panelFocus"
     },
     {
+        "key": "alt+m",
+        "command": "workbench.panel.markers.view.focus",
+        "when": "!panelFocus || activePanel != 'workbench.panel.markers'"
+    },
+    {
+        "key": "alt+m",
+        "command": "workbench.action.closePanel",
+        "when": "panelFocus && activePanel == 'workbench.panel.markers'"
+    },
+    {
         "key": "alt+n",
         "command": "search.action.focusNextSearchResult",
         "when": "hasSearchResult || inSearchEditor"
@@ -590,12 +606,12 @@
     {
         "key": "alt+o",
         "command": "workbench.panel.output.focus",
-        "when": "!panelFocus"
+        "when": "!panelFocus || activePanel != 'workbench.panel.output'"
     },
     {
         "key": "alt+o",
         "command": "workbench.action.closePanel",
-        "when": "panelFocus"
+        "when": "panelFocus && activePanel == 'workbench.panel.output'"
     },
     {
         "key": "alt+p",
