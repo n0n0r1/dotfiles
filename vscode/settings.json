@@ -133,6 +133,8 @@
         { "before": ["<C-k>"], "after": ["<Leader>", "<Leader>", "k"] },
 
         // 検索
+        { "before": ["/"], "commands": ["actions.find"] },
+        { "before": ["?"], "commands": ["actions.find"] },
         { "before": ["*"], "after": ["*", "z", "z"] },
         { "before": ["#"], "after": ["#", "z", "z"] },
         { "before": ["n"], "commands": ["editor.action.nextMatchFindAction"] },
