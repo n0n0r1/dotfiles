@@ -265,4 +265,6 @@
     "workbench.editor.closeEmptyGroups": true,
     "terminal.integrated.allowChords": false,
     "scm.alwaysShowActions": true,
+    "editor.formatOnPaste": true,
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
 }

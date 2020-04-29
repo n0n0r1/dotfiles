@@ -269,6 +269,11 @@
         "when": "editorFocus && replaceInputFocussed"
     },
     {
+        "key": "ctrl+a",
+        "command": "search.action.replaceAll",
+        "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
+    },
+    {
         "key": "ctrl+c",
         "command": "toggleFindCaseSensitive",
         "when": "editorFocus && findInputFocussed"
@@ -300,8 +305,13 @@
     },
     {
         "key": "ctrl+j",
+        "command": "workbench.action.replaceInFiles",
+        "when": "!replaceActive && inputBoxFocus && searchViewletVisible"
+    },
+    {
+        "key": "ctrl+j",
         "command": "search.focus.nextInputBox",
-        "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible"
+        "when": "replaceActive && inputBoxFocus && searchViewletVisible"
     },
     {
         "key": "ctrl+j",
@@ -326,7 +336,7 @@
     {
         "key": "ctrl+j",
         "command": "list.focusDown",
-        "when": "listFocus && !inputFocus"
+        "when": "listFocus && !inputFocus && !sideBarFocus"
     },
     {
         "key": "ctrl+k",
@@ -366,7 +376,7 @@
     {
         "key": "ctrl+k",
         "command": "list.focusUp",
-        "when": "listFocus && !inputFocus"
+        "when": "listFocus && !inputFocus && !sideBarFocus"
     },
     {
         "key": "ctrl+k",
@@ -386,12 +396,7 @@
     {
         "key": "ctrl+n",
         "command": "editor.action.nextMatchFindAction",
-        "when": "editorFocus && findInputFocussed"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "editor.action.replaceOne",
-        "when": "editorFocus && findWidgetVisible && replaceInputFocussed"
+        "when": "editorFocus && findInputFocussed || editorFocus && replaceInputFocussed"
     },
     {
         "key": "ctrl+n",
@@ -467,6 +472,16 @@
         "key": "ctrl+y",
         "command": "editor.action.replaceOne",
         "when": "findWidgetVisible && editorFocus && vim.mode == 'Normal' && !findInputFocussed && !replaceInputFocussed"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "editor.action.replaceOne",
+        "when": "editorFocus && findWidgetVisible && replaceInputFocussed"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "search.action.replace",
+        "when": "matchFocus && replaceActive && searchViewletVisible"
     },
     {
         "key": "ctrl+;",
@@ -551,7 +566,7 @@
     {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
-        "when": "!panelFocus"
+        "when": "editorFocus"
     },
     {
         "key": "alt+k",
@@ -561,7 +576,7 @@
     {
         "key": "alt+k",
         "command": "workbench.action.closePanel",
-        "when": "activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.repl' || activePanel == 'workbench.panel.terminal' || activePanel == 'workbench.panel.comments'"
+        "when": "activePanel == 'workbench.panel.markers' && editorFocus || activePanel == 'workbench.panel.output' && editorFocus || activePanel == 'workbench.panel.repl' && editorFocus || activePanel == 'workbench.panel.terminal' && editorFocus || activePanel == 'workbench.panel.comments' && editorFocus"
     },
     {
         "key": "alt+k",

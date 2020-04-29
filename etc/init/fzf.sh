@@ -2,7 +2,9 @@
 
 eval "FZF_PATH=$FZF_PATH"
 
-sudo apt-get install -y git unzip connect-proxy
+if [ -z "$(command -v git)" ]; then
+    sudo apt install -y git
+fi
 
 # fzfのインストール
 if [ -z "$(command -v fzf)" ]; then
