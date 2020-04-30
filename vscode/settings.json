@@ -270,5 +270,5 @@
     "scm.alwaysShowActions": true,
     "editor.formatOnPaste": true,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    // "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe"
 }
