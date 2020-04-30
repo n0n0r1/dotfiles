@@ -16,3 +16,7 @@ if [ -z "$(pyenv versions | grep $PYTHON_VERSION)" ]; then
     pyenv install $PYTHON_VERSION
     pyenv global $PYTHON_VERSION
 fi
+
+if [ ! -z "$(pip list --outdated | grep pip)" ]; then
+    pip install --upgrade pip
+fi

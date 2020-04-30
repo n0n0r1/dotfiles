@@ -1,2 +1,5 @@
 .history
 WindowsTerminal/profiles.json
+WindowsTerminal/settings.json
+WindowsTerminal/profiles.*.json
+WindowsTerminal/settings.*.json

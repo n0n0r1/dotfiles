@@ -206,7 +206,7 @@
     {
         "key": "shift+;",
         "command": "workbench.action.showCommands",
-        "when": "activeEditorGroupEmpty || editorFocus && vim.mode != 'Insert' && !inSettingsSearch && !inKeybindingsSearch && !terminalFocus && !findInputFocussed && !replaceInputFocussed"
+        "when": "activeEditorGroupEmpty && !terminalFocus || editorFocus && vim.mode != 'Insert' && !inSettingsSearch && !inKeybindingsSearch && !terminalFocus && !findInputFocussed && !replaceInputFocussed"
     },
     {
         "key": "ctrl+a",
@@ -566,7 +566,7 @@
     {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
-        "when": "editorFocus"
+        "when": "editorFocus || activeEditorGroupEmpty"
     },
     {
         "key": "alt+k",
