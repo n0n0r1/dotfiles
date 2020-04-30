@@ -206,7 +206,7 @@
     {
         "key": "shift+;",
         "command": "workbench.action.showCommands",
-        "when": "activeEditorGroupEmpty && !terminalFocus || editorFocus && vim.mode != 'Insert' && !inSettingsSearch && !inKeybindingsSearch && !terminalFocus && !findInputFocussed && !replaceInputFocussed"
+        "when": "activeEditorGroupEmpty && !terminalFocus"
     },
     {
         "key": "ctrl+a",

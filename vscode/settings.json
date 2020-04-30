@@ -106,6 +106,9 @@
         "<C-y>": true
     },
     "vim.normalModeKeyBindingsNonRecursive": [
+        // コマンド実行
+        { "before": [":"], "commands": ["workbench.action.showCommands"] },
+
         // カーソル移動
         { "before": ["k"], "after": ["g", "k"] },
         { "before": ["g", "k"], "after": ["k"] },
@@ -267,5 +270,5 @@
     "scm.alwaysShowActions": true,
     "editor.formatOnPaste": true,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    // "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
 }
