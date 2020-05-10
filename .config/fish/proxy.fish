@@ -1,14 +1,14 @@
 
 function set_proxy
-    set -g http_proxy "$PROXY"
-    set -g https_proxy "$PROXY"
-    set -g ftp_proxy "$PROXY"
-    set -g no_proxy '127.0.0.1,localhost,host.docker.internal'
+    set -gx http_proxy "$PROXY"
+    set -gx https_proxy "$PROXY"
+    set -gx ftp_proxy "$PROXY"
+    set -gx no_proxy '127.0.0.1,localhost,host.docker.internal'
 
-    set -g HTTP_PROXY "$PROXY"
-    set -g HTTPS_PROXY "$PROXY"
-    set -g FTP_PROXY "$PROXY"
-    set -g NO_PROXY '127.0.0.1,localhost,host.docker.internal'
+    set -gx HTTP_PROXY "$PROXY"
+    set -gx HTTPS_PROXY "$PROXY"
+    set -gx FTP_PROXY "$PROXY"
+    set -gx NO_PROXY '127.0.0.1,localhost,host.docker.internal'
 end
 
 function unset_proxy

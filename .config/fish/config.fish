@@ -40,3 +40,5 @@ if command -v pyenv 1>/dev/null 2>&1
 end
 
 source ~/.config/fish/proxy.fish
+
+umask 022
