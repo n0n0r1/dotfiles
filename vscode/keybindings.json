@@ -254,6 +254,11 @@
         "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
     },
     {
+        "key": "'",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    {
         "key": "r",
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -274,23 +279,18 @@
         "when": "replaceActive && searchViewletVisible && !findWidgetVisible"
     },
     {
-        "key": "ctrl+c",
-        "command": "toggleFindCaseSensitive",
+        "key": "ctrl+e",
+        "command": "toggleFindWholeWord",
         "when": "editorFocus && findInputFocussed"
     },
     {
-        "key": "ctrl+c",
-        "command": "workbench.action.terminal.toggleFindCaseSensitive",
+        "key": "ctrl+e",
+        "command": "workbench.action.terminal.toggleFindWholeWord",
         "when": "terminalFindWidgetFocused"
     },
     {
-        "key": "ctrl+c",
-        "command": "toggleSearchCaseSensitive",
-        "when": "searchViewletFocus && !fileMatchOrFolderMatchFocus"
-    },
-    {
         "key": "ctrl+e",
-        "command": "workbench.action.replaceInFiles",
+        "command": "toggleSearchWholeWord",
         "when": "searchViewletFocus"
     },
     {
@@ -464,19 +464,24 @@
         "when": "searchViewletFocus"
     },
     {
+        "key": "ctrl+s",
+        "command": "workbench.action.replaceInFiles",
+        "when": "searchViewletFocus"
+    },
+    {
         "key": "ctrl+w",
-        "command": "toggleFindWholeWord",
+        "command": "toggleFindCaseSensitive",
         "when": "editorFocus && findInputFocussed"
     },
     {
         "key": "ctrl+w",
-        "command": "workbench.action.terminal.toggleFindWholeWord",
+        "command": "workbench.action.terminal.toggleFindCaseSensitive",
         "when": "terminalFindWidgetFocused"
     },
     {
         "key": "ctrl+w",
-        "command": "toggleSearchWholeWord",
-        "when": "searchViewletFocus"
+        "command": "toggleSearchCaseSensitive",
+        "when": "searchViewletFocus && !fileMatchOrFolderMatchFocus"
     },
     {
         "key": "ctrl+w h",
@@ -520,13 +525,13 @@
     },
     {
         "key": "ctrl+;",
-        "command": "workbench.action.closeQuickOpen",
-        "when": "inQuickOpen"
+        "command": "workbench.action.closeActiveEditor",
+        "when": "!editorFocus && !terminalFocus && !inQuickOpen && !sideBarFocus"
     },
     {
         "key": "ctrl+;",
-        "command": "workbench.action.closeActiveEditor",
-        "when": "!editorFocus && !terminalFocus && !inQuickOpen && !sideBarFocus"
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
     },
     {
         "key": "ctrl+oem_2",
