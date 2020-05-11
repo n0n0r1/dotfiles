@@ -42,3 +42,4 @@ end
 source ~/.config/fish/proxy.fish
 
 umask 022
+set -gx DOCKER_HOST tcp://localhost:2375
