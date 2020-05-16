@@ -9,11 +9,6 @@ set -g fish_prompt_pwd_dir_length 0
 set -U FZF_LEGACY_KEYBINDINGS 0
 
 function attach_tmux_session_if_needed
-#    set ID (tmux list-sessions)
-#    if test -z "$ID"
-#        tmux new-session
-#        return
-#    end
     set new_session "Create New Session" 
     set ID (string join \n $new_session (tmux list-sessions) | fzf | cut -d: -f1)
     if test "$ID" = "$new_session"

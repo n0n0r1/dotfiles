@@ -3,9 +3,7 @@
     // フォント
     // ------------------------------------------------------------------------
     "editor.fontFamily": "Sarasa Mono T J",
-    // "editor.fontWeight": "400",
     "editor.fontLigatures": true,
-    // "editor.lineHeight": 18,
     "editor.letterSpacing": 0,
     "terminal.integrated.fontFamily": "Sarasa Mono T J",
     "terminal.integrated.fontSize": 16,
@@ -34,47 +32,63 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.renderWhitespace": "boundary",
     "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
     "editor.renderLineHighlight": "none",
     "editor.wordWrap": "on",
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」（）；：・？＜＞＋－＊／｛｝｜～＆％＄＃”！’　にをはがのとも",
     "editor.mouseWheelZoom": true,
     "editor.matchBrackets": "always",
-    "workbench.colorTheme": "Material Theme High Contrast",
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
     "workbench.editor.enablePreview": false,
     "workbench.colorCustomizations": {
-        "editor.background": "#131d22",
+        "editor.background": "#231d22",
         "editor.foreground": "#fff",
-        "terminal.border": "#496b86",
-        "activityBarBadge.background": "#84FFFF",
-        "activityBar.activeBorder": "#84FFFF",
-        "list.activeSelectionForeground": "#84FFFF",
-        "list.inactiveSelectionForeground": "#84FFFF",
-        "list.highlightForeground": "#84FFFF",
-        "scrollbarSlider.activeBackground": "#84FFFF50",
-        "editorSuggestWidget.highlightForeground": "#84FFFF",
-        "textLink.foreground": "#84FFFF",
-        "progressBar.background": "#84FFFF",
-        "pickerGroup.foreground": "#84FFFF",
-        "tab.activeBorder": "#84FFFF",
-        "notificationLink.foreground": "#84FFFF",
-        "editorWidget.resizeBorder": "#84FFFF",
-        "editorWidget.border": "#84FFFF",
-        "settings.modifiedItemIndicator": "#84FFFF",
-        "settings.headerForeground": "#84FFFF",
-        "panelTitle.activeBorder": "#84FFFF",
-        "breadcrumb.activeSelectionForeground": "#84FFFF",
-        "menu.selectionForeground": "#84FFFF",
-        "menubar.selectionForeground": "#84FFFF",
-        "editor.findMatchBorder": "#84FFFF",
-        "selection.background": "#84FFFF40"
+        "terminal.border": "#969696",
+        "activityBarBadge.background": "#57a2e7",
+        "activityBarBadge.foreground": "#000000",
+        "editorSuggestWidget.selectedBackground": "#880088"
     },
     "window.zoomLevel": 0,
     "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "terminal.explorerKind": "integrated",
     "breadcrumbs.enabled": true,
     "editor.lineNumbers": "relative",
+
+    // ファイルエクスプローラーの表示対象外
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/.history": false
+    },
+
+    // 検索の対象外
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/.history": true
+    },
+
+    // ファイル監視の除外
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.svn/**": true,
+        "**/.history/**": true
+    },
+
+    // ------------------------------------------------------------------------
+    // ターミナル
+    // ------------------------------------------------------------------------
+
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
 
     // ------------------------------------------------------------------------
     // 予測変換
@@ -106,7 +120,7 @@
     "vim.whichwrap": "h,l,<,>,[,]", // hl<>[]で行頭左移動、行末右移動を可能にする
     "vim.useSystemClipboard": true, // vimとシステムのクリップボードを共有
     "vim.hlsearch": true,
-    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.enable": false,
     "vim.searchHighlightColor": "#aa00aa",
     "vim.searchHighlightTextColor": "#ffffff",
     "vim.easymotion": true,
@@ -243,6 +257,15 @@
     // ------------------------------------------------------------------------
     // 言語別設定
     // ------------------------------------------------------------------------
+
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": true,
+
+    // html
+    "html.format.endWithNewline": true,
+
+    // markdown
     "markdownlint.config": {
         "MD004": false,
         "MD007": false,
@@ -256,8 +279,6 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "markdown-preview-enhanced.mermaidTheme": "dark",
-    "[python]": {},
-    "python.jediEnabled": false,
 
     // ------------------------------------------------------------------------
     // その他
@@ -267,40 +288,12 @@
     "telemetry.enableTelemetry": false,
     "local-history.absolute": true,
     "local-history.treeLocation": "localHistory",
-    "prettier.tabWidth": 4,
-    "prettier.singleQuote": true,
-    "files.watcherExclude": {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true,
-        "**/.svn/**": true,
-        "**/.history/**": true
-    },
     "editor.acceptSuggestionOnEnter": "on",
-    "html.format.endWithNewline": true,
-    "files.exclude": {
-        "**/.git": false,
-        "**/.svn": false,
-        "**/.hg": false,
-        "**/CVS": false,
-        "**/.DS_Store": false,
-        "**/.history": false
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true,
-        "**/.history": true
-    },
     "git.autofetch": true,
     "editor.detectIndentation": false,
     "markdown.extension.list.indentationSize": "inherit",
-    "editor.renderControlCharacters": true,
     "workbench.editor.closeEmptyGroups": true,
-    "terminal.integrated.allowChords": false,
     "scm.alwaysShowActions": true,
     "editor.formatOnPaste": true,
-    "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
-    "workbench.commandPalette.history": 20,
-    "materialTheme.accent": "Sky"
+    "workbench.commandPalette.history": 20
 }
