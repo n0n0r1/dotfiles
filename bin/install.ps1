@@ -54,9 +54,13 @@ $PACKAGES = @(
   "msys2"
   "neovim"
   "nodejs-lts"
+  "pwsh"
   "python"
   "ripgrep"
   "vscode"
+  "powertoys"
+  "android-studio"
+  "jq"
 )
 
 scoop install $UTILS
