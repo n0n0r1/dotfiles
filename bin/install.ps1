@@ -49,6 +49,7 @@ $UTILS = @(
 $PACKAGES = @(
   "bat"
   "fzf"
+  "ghq"
   "go"
   "googlechrome"
   "msys2"
