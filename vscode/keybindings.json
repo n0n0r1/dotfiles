@@ -259,6 +259,11 @@
         "when": "inQuickOpen"
     },
     {
+        "key": "'",
+        "command": "workbench.action.quickOpen",
+        "when": "activeEditorGroupEmpty"
+    },
+    {
         "key": "r",
         "command": "renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -266,6 +271,26 @@
     {
         "key": "space c",
         "command": "workbench.action.files.newUntitledFile",
+        "when": "activeEditorGroupEmpty && !terminalFocus && !inQuickOpen"
+    },
+    {
+        "key": "space e",
+        "command": "workbench.action.files.openFile",
+        "when": "activeEditorGroupEmpty && !terminalFocus && !inQuickOpen"
+    },
+    {
+        "key": "space shift+e",
+        "command": "workbench.action.files.openFolder",
+        "when": "activeEditorGroupEmpty && !terminalFocus && !inQuickOpen"
+    },
+    {
+        "key": "space f",
+        "command": "workbench.action.quickOpen",
+        "when": "activeEditorGroupEmpty && !terminalFocus && !inQuickOpen"
+    },
+    {
+        "key": "space r",
+        "command": "workbench.action.openRecent",
         "when": "activeEditorGroupEmpty && !terminalFocus && !inQuickOpen"
     },
     {
@@ -497,6 +522,11 @@
         "key": "ctrl+w l",
         "command": "workbench.action.focusRightGroup",
         "when": "inSettingsSearch || inKeybindings || inSettingsEditor"
+    },
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "sideBarFocus"
     },
     {
         "key": "ctrl+y",

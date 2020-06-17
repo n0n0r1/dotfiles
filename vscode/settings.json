@@ -154,6 +154,8 @@
         { "before": ["g", "k"], "after": ["k"] },
         { "before": ["j"], "after": ["g", "j"] },
         { "before": ["g", "j"], "after": ["j"] },
+        { "before": ["H"], "after": ["h"] },
+        { "before": ["L"], "after": ["l"] },
         { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
         { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
 

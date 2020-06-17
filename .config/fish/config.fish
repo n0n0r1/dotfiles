@@ -34,6 +34,8 @@ if command -v pyenv 1>/dev/null 2>&1
     pyenv init - | source
 end
 
+alias ssh="TERM=xterm /usr/bin/ssh"
+
 source ~/.config/fish/proxy.fish
 
 umask 022
