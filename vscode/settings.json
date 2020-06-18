@@ -88,7 +88,7 @@
 
     "terminal.integrated.allowChords": false,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
     // ------------------------------------------------------------------------
     // 予測変換
@@ -297,5 +297,6 @@
     "workbench.editor.closeEmptyGroups": true,
     "scm.alwaysShowActions": true,
     "editor.formatOnPaste": true,
-    "workbench.commandPalette.history": 20
+    "workbench.commandPalette.history": 20,
+    "workbench.tree.indent": 20
 }
