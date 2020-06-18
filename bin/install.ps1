@@ -49,14 +49,19 @@ $UTILS = @(
 $PACKAGES = @(
   "bat"
   "fzf"
+  "ghq"
   "go"
   "googlechrome"
   "msys2"
   "neovim"
   "nodejs-lts"
+  "pwsh"
   "python"
   "ripgrep"
   "vscode"
+  "powertoys"
+  "android-studio"
+  "jq"
 )
 
 scoop install $UTILS
@@ -82,11 +87,7 @@ $PIP3PACKAGES = @(
 )
 python -m pip install --upgrade $PIP3PACKAGES
 
-if (Test-Path ("$DOTFILES")) {
-  Set-Location $DOTFILES
-  git pull
-}
-else {
+if (-Not (Test-Path ("$DOTFILES"))) {
   git config --global core.autoCRLF false
   git clone https://github.com/n0n0r1/dotfiles.git $env:USERPROFILE\.dotfiles
 }
