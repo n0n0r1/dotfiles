@@ -165,14 +165,6 @@
         {
             "command": "prevTab",
             "keys": ["ctrl+shift+tab"]
-        },
-        {
-            "command": "splitHorizontal",
-            "keys": ["ctrl+-"]
-        },
-        {
-            "command": "splitVertical",
-            "keys": ["ctrl+\\"]
         }
     ]
 }

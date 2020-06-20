@@ -20,4 +20,5 @@ if [ -z "$(command -v win32yank.exe)" ]; then
     sudo apt install -y zip
     curl -LO https://github.com/equalsraf/win32yank/releases/download/v0.0.4/win32yank-x64.zip
     unzip -d $(wslpath -u "$USERPROFILE/$WIN32YANK_PATH") win32yank-x64.zip
+    rm win32yank-x64.zip
 fi
