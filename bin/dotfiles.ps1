@@ -95,14 +95,15 @@ if ($mode -eq "i") {
 
     # dotfiles をダウンロード
     if (-Not (Test-Path ("$DOTFILES"))) {
-    git config --global core.autoCRLF false
-    git clone https://github.com/n0n0r1/dotfiles.git $env:USERPROFILE\.dotfiles
+        git config --global core.autoCRLF false
+        git clone https://github.com/n0n0r1/dotfiles.git $env:USERPROFILE\.dotfiles
     }
 
     # keyhacのインストール
     if (-Not (Test-Path ("$env:USERPROFILE\bin\keyhac"))) {
         (New-Object Net.WebClient).DownloadFile("http://crftwr.github.io/keyhac/download/keyhac_182.zip", ".\keyhac.zip")
         unzip .\keyhac.zip -d $env:USERPROFILE\bin
+        Remove-Item keyhac.zip
     }
 
     # keyhacをOS起動時に起動する
@@ -112,14 +113,22 @@ if ($mode -eq "i") {
         $Shortcut.IconLocation = "$env:USERPROFILE\bin\keyhac\keyhac.exe"
         $Shortcut.Save()
     }
+
+    # フォント
+    if (-Not (Test-Path ("$env:USERPROFILE\font\sarasa-gothic"))) {
+        Write-Output "Download sarasa-gothic.7z"
+        (New-Object Net.WebClient).DownloadFile("https://github.com/be5invis/Sarasa-Gothic/releases/download/v0.12.7/sarasa-gothic-ttc-0.12.7.7z", ".\sarasa-gothic.7z")
+        7z x sarasa-gothic.7z -o"$env:USERPROFILE\font\sarasa-gothic"
+        Remove-Item sarasa-gothic.7z
+    }
 } elseif ($mode -eq "d") {
 
     # keyhac
     if (-Not (Test-Path ("$env:USERPROFILE\bin\keyhac\config.py"))) {
         New-Item -Type SymbolicLink $env:USERPROFILE\bin\keyhac\config.py -Value $env:USERPROFILE\.dotfiles\keyhac\config.py
     } elseif (-Not ((Get-Item ("$env:USERPROFILE\bin\keyhac\config.py")).Attributes.ToString() -match "ReparsePoint")) {
-        copy $env:USERPROFILE\bin\keyhac\config.py $env:USERPROFILE\bin\keyhac\config.py.bak
-        rm $env:USERPROFILE\bin\keyhac\config.py
+        Copy-Item $env:USERPROFILE\bin\keyhac\config.py $env:USERPROFILE\bin\keyhac\config.py.bak
+        Remove-Item $env:USERPROFILE\bin\keyhac\config.py
         New-Item -Type SymbolicLink $env:USERPROFILE\bin\keyhac\config.py -Value $env:USERPROFILE\.dotfiles\keyhac\config.py
     }
 
@@ -128,8 +137,8 @@ if ($mode -eq "i") {
     if (-Not (Test-Path ("$WindowsTerminalPath\settings.json"))) {
         New-Item -Type SymbolicLink $WindowsTerminalPath\settings.json -Value $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
     } elseif (-Not ((Get-Item ("$WindowsTerminalPath\settings.json")).Attributes.ToString() -match "ReparsePoint")) {
-        copy $WindowsTerminalPath\settings.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
-        rm $WindowsTerminalPath\settings.json
+        Copy-Item $WindowsTerminalPath\settings.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
+        Remove-Item $WindowsTerminalPath\settings.json
         New-Item -Type SymbolicLink $WindowsTerminalPath\settings.json -Value $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
     }
 
@@ -138,15 +147,15 @@ if ($mode -eq "i") {
     if (-Not (Test-Path ("$VscodePath\settings.json"))) {
         New-Item -Type SymbolicLink $VscodePath\settings.json -Value $env:USERPROFILE\.dotfiles\vscode\settings.json
     } elseif (-Not ((Get-Item ("$VscodePath\settings.json")).Attributes.ToString() -match "ReparsePoint")) {
-        copy $VscodePath\settings.json $VscodePath\settings.json.bak
-        rm $VscodePath\settings.json
+        Copy-Item $VscodePath\settings.json $VscodePath\settings.json.bak
+        Remove-Item $VscodePath\settings.json
         New-Item -Type SymbolicLink $VscodePath\settings.json -Value $env:USERPROFILE\.dotfiles\vscode\settings.json
     }
     if (-Not (Test-Path ("$VscodePath\keybindings.json"))) {
         New-Item -Type SymbolicLink $VscodePath\keybindings.json -Value $env:USERPROFILE\.dotfiles\vscode\keybindings.json
     } elseif (-Not ((Get-Item ("$VscodePath\keybindings.json")).Attributes.ToString() -match "ReparsePoint")) {
-        copy $VscodePath\keybindings.json $VscodePath\keybindings.json.bak
-        rm $VscodePath\keybindings.json
+        Copy-Item $VscodePath\keybindings.json $VscodePath\keybindings.json.bak
+        Remove-Item $VscodePath\keybindings.json
         New-Item -Type SymbolicLink $VscodePath\keybindings.json -Value $env:USERPROFILE\.dotfiles\vscode\keybindings.json
     }
 }
