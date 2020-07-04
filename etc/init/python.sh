@@ -3,10 +3,18 @@
 eval "PYENV_PATH=$PYENV_PATH"
 eval "PYTHON_VERSION=$PYTHON_VERSION"
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # pyenvのインストール
 if [ -z "$(command -v pyenv)" ]; then
     git clone https://github.com/pyenv/pyenv.git $PYENV_PATH
+
+    fish -c 'set -Ux PYENV_ROOT $HOME/.pyenv'
+    fish -c 'set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths'
 fi
+
+eval "$(pyenv init -)"
 
 if [ -z "$(pyenv versions | grep $PYTHON_VERSION)" ]; then
     # dependencies

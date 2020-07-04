@@ -2,10 +2,9 @@
 
 eval "TMUX_PATH=$TMUX_PATH"
 
-if [ -z "$(command -v tmux)" ]; then
+if [ ! -d "$TMUX_PATH" ]; then
     sudo apt install -y git automake bison build-essential pkg-config libevent-dev libncurses5-dev
 
-    trap "rm -rf $TMUX_PATH" EXIT
     git clone https://github.com/tmux/tmux $TMUX_PATH
 
     cd $TMUX_PATH

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-eval "FISHER_PATH=$FISHER_PATH"
-
 # fishのインストール
 if [ -z "$(command -v fish)" ]; then
     sudo apt-add-repository -y ppa:fish-shell/release-3
@@ -10,5 +8,5 @@ if [ -z "$(command -v fish)" ]; then
 fi
 
 # fisherのインストール
-curl https://git.io/fisher --create-dirs -sLo $FISHER_PATH
-fish -c fisher add jethrokuan/z oh-my-fish/theme-bobthefish jethrokuan/fzf
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+fish -c "fisher add jethrokuan/z oh-my-fish/theme-bobthefish jethrokuan/fzf"
