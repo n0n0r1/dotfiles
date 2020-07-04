@@ -12,13 +12,12 @@
 
     "profiles": {
         "defaults": {
-            "fontFace": "Sarasa Mono T J",
+            "fontFace": "更紗等幅ゴシック J",
             "fontSize": 12,
             "closeOnExit": true,
             "colorScheme": "Material"
         },
-        "list": [
-        ]
+        "list": []
     },
 
     "schemes": [

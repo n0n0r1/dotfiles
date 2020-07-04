@@ -142,7 +142,8 @@ if ($mode -eq "i") {
         Copy-Item $env:USERPROFILE\.dotfiles\WindowsTerminal\settings_base.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
         New-Item -Type SymbolicLink $WindowsTerminalPath\settings.json -Value $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
     } elseif (-Not ((Get-Item ("$WindowsTerminalPath\settings.json")).Attributes.ToString() -match "ReparsePoint")) {
-        Copy-Item $WindowsTerminalPath\settings.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
+        $Profiles = (Get-Content $WindowsTerminalPath\settings.json | ConvertFrom-Json).profiles.list | ConvertTo-Json
+        Get-Content $env:USERPROFILE\.dotfiles\WindowsTerminal\settings_base.json | % { $_ -replace """list"": \[\]", """list"": $Profiles" } > $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
         Remove-Item $WindowsTerminalPath\settings.json
         New-Item -Type SymbolicLink $WindowsTerminalPath\settings.json -Value $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
     }
