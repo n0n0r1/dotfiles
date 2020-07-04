@@ -121,6 +121,9 @@ if ($mode -eq "i") {
         7z x sarasa-gothic.7z -o"$env:USERPROFILE\font\sarasa-gothic"
         Remove-Item sarasa-gothic.7z
     }
+    
+    # Vscodeの拡張機能をインストール
+    Get-Content $env:USERPROFILE\.dotfiles\vscode\extensions | % { code --install-extension $_ }
 } elseif ($mode -eq "d") {
 
     # keyhac
@@ -134,7 +137,9 @@ if ($mode -eq "i") {
 
     # Windows Terminal
     $WindowsTerminalPath = Get-ChildItem $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_*\LocalState\
+    echo $WindowsTerminalPath
     if (-Not (Test-Path ("$WindowsTerminalPath\settings.json"))) {
+        Copy-Item $env:USERPROFILE\.dotfiles\WindowsTerminal\settings_base.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
         New-Item -Type SymbolicLink $WindowsTerminalPath\settings.json -Value $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
     } elseif (-Not ((Get-Item ("$WindowsTerminalPath\settings.json")).Attributes.ToString() -match "ReparsePoint")) {
         Copy-Item $WindowsTerminalPath\settings.json $env:USERPROFILE\.dotfiles\WindowsTerminal\settings.$env:COMPUTERNAME.json
