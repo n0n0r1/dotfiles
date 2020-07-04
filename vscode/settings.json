@@ -2,14 +2,14 @@
     // ------------------------------------------------------------------------
     // フォント
     // ------------------------------------------------------------------------
-    "editor.fontFamily": "Sarasa Mono T J",
+    "editor.fontFamily": "更紗等幅ゴシック J",
     "editor.fontLigatures": true,
     "editor.letterSpacing": 0,
-    "terminal.integrated.fontFamily": "Sarasa Mono T J",
+    "terminal.integrated.fontFamily": "更紗等幅ゴシック J",
     "terminal.integrated.fontSize": 16,
-    "rest-client.fontFamily": "Sarasa Mono T J",
+    "rest-client.fontFamily": "更紗等幅ゴシック J",
     "rest-client.fontSize": 14,
-    "vim.easymotionMarkerFontFamily": "Sarasa Mono T J",
+    "vim.easymotionMarkerFontFamily": "更紗等幅ゴシック J",
     "vim.easymotionMarkerFontWeight": "600",
 
     // ------------------------------------------------------------------------
