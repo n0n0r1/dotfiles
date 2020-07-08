@@ -51,8 +51,6 @@
         "editorSuggestWidget.selectedBackground": "#880088"
     },
     "window.zoomLevel": 0,
-    "terminal.external.windowsExec": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-    "terminal.explorerKind": "integrated",
     "breadcrumbs.enabled": true,
     "editor.lineNumbers": "relative",
 
@@ -79,6 +77,7 @@
         "**/.git/subtree-cache/**": true,
         "**/node_modules/*/**": true,
         "**/.svn/**": true,
+        "**/target/**": true,
         "**/.history/**": true
     },
 
@@ -86,9 +85,9 @@
     // ターミナル
     // ------------------------------------------------------------------------
 
+    "terminal.explorerKind": "integrated",
     "terminal.integrated.allowChords": false,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "terminal.integrated.shell.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
 
     // ------------------------------------------------------------------------
     // 予測変換
